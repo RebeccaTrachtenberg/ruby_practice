@@ -17,7 +17,7 @@ class DogShow
       (rounds).times do |i|
         if @calculator.points_for_dog(sort_dogs[i]) < @calculator.points_for_dog(sort_dogs[i + 1])
            sort_dogs[i], sort_dogs[i + 1] = sort_dogs[i + 1], sort_dogs[i]
-          
+
           swapped = true
         end 
       end 
@@ -32,13 +32,12 @@ class DogShow
   end 
 
   def ranking_for(pup)
-    dog_name = pup
     sorted_dogs = rankings
     loops = 1
 
      sorted_dogs.each do |i|
-       if dog_name == i.name
-        lreturn loops
+       if pup == i.name
+        return loops
        else 
         loops += 1
        end 
