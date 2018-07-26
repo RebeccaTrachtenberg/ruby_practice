@@ -1,6 +1,7 @@
 require_relative 'i_status'
 
-class Library < I_status
+class Library 
+ include I_status
 
   attr_reader :name, :location, :library_system, :items
 
@@ -11,19 +12,4 @@ class Library < I_status
     @library_system = args[:library_system]
   end
 
-  # def add_item(item)
-  #   items << item
-  # end
-
-  # def remove_item(item)
-  #   items.delete(item)
-  # end
-
-  # def available_items
-  #   items.select { |item| item.available? && !item.damaged? }
-  # end
-
-  # def unavailable_items
-  #   items - available_items
-  # end
 end

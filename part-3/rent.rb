@@ -1,5 +1,5 @@
 
-class Rent
+module Rent
 
  def available?
     !checked_out?

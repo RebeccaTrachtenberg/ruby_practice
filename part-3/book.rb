@@ -1,15 +1,16 @@
 require_relative 'rent'
 
-class Book < Rent
+class Book 
+	include Rent
 
   attr_reader :length, :title, :author, :format, :language
 
   def initialize(args = {})
     @length = args[:length]
-    @title  = args[:title]
+    @title  = args[:title] #
     @author = args[:author]
     @format = args[:format]
-    @language = args[:language]
+    @language = args[:language] 
   end
 
 end

@@ -1,11 +1,14 @@
 require_relative 'rent'
 
-class CD < Rent
+class CD 
+
+  include Rent
+  
   attr_reader :runtime, :title, :artist, :label
 
   def initialize(args ={})
     @runtime = args[:runtime]
-    @title   = args[:title]
+    @title   = args[:title] #
     @artist  = args[:artist]
     @label   = args[:label]
   end

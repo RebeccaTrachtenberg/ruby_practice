@@ -1,6 +1,6 @@
-require_relative 'condition'
 
-class I_status < Condition
+
+module I_status
 
   def add_item(item)
     items << item
