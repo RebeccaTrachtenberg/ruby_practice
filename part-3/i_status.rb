@@ -1,14 +1,6 @@
-# require_relative 'condition'
-require_relative 'i_status'
+require_relative 'condition'
 
-class MediaKiosk < I_status
-  attr_reader :name, :location, :items
-
-  def initialize(args = {})
-    @name = args[:name]
-    @location = args[:location]
-    @items = args[:items]
-  end
+class I_status < Condition
 
   def add_item(item)
     items << item
@@ -25,4 +17,5 @@ class MediaKiosk < I_status
   def unavailable_items
     items - available_items
   end
-end
+
+end 

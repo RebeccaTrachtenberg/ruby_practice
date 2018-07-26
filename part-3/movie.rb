@@ -1,4 +1,6 @@
-class Movie
+require_relative 'rent'
+
+class Movie < Rent
   attr_reader :runtime, :title, :format
 
   def initialize(args ={})
@@ -7,21 +9,21 @@ class Movie
     @format  = args[:format]
   end
 
-  def available?
-    !checked_out?
-  end
+  # def available?
+  #   !checked_out?
+  # end
 
-  def checkout
-    @checked_out = true
-  end
+  # def checkout
+  #   @checked_out = true
+  # end
 
-  def checked_out?
-    @checked_out
-  end
+  # def checked_out?
+  #   @checked_out
+  # end
 
-  def return
-    @checked_out = false
-  end
+  # def return
+  #   @checked_out = false
+  # end
 
   def damaged?
     @damaged
