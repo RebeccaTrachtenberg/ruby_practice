@@ -1,4 +1,6 @@
-class MediaKiosk
+require_relative 'i_status'
+
+class MediaKiosk < I_status
   attr_reader :name, :location, :items
 
   def initialize(args = {})
@@ -7,31 +9,4 @@ class MediaKiosk
     @items = args[:items]
   end
 
-  def damaged?
-    @damaged
-  end
-
-  def record_damage
-    @damaged = true
-  end
-
-  def repair
-    @damaged = false
-  end
-
-  def add_item(item)
-    items << item
-  end
-
-  def remove_item(item)
-    items.delete(item)
-  end
-
-  def available_items
-    items.select { |item| item.available? && !item.damaged? }
-  end
-
-  def unavailable_items
-    items - available_items
-  end
 end

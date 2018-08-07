@@ -4,16 +4,27 @@ Record your queries and any resulting output below.
 ## Release 0:  Query the Database
 1.  What are all the player names?
     
-    Query:
+    Query: 
   
     ```sql
-    < your query here >
+    < SELECT name FROM players; >
     ```
     
     Result:
   
     ```sql
-    < output here > 
+    < Abby Wambach
+    Dez Bryant
+    Hope Solo
+    Jonathan Toews
+    Julie Johnston
+    Kerri Walsh
+    Kyrie Irving
+    Lebron James
+    Misty May-Treanor
+    Patrick Kane
+    Shannon Boxx
+    Tony Romo > 
     ```
   
 2.  Which team names include the word "Chicago"?
@@ -21,13 +32,16 @@ Record your queries and any resulting output below.
     Query:
   
     ```sql
-    < your query here >
+    < SELECT name FROM teams WHERE name LIKE '%Chicago%'; >
     ```
     
     Result:
   
     ```sql
-    < output here > 
+    < Chicago Blackhawks
+    Chicago Red Stars
+    sqlite> 
+ > 
     ```
   
 3.  What are the titles of the positions on the team named "Chicago Blackhawks"?
@@ -35,13 +49,15 @@ Record your queries and any resulting output below.
     Query:
   
     ```sql
-    < your query here >
+    < SELECT positions.title FROM positions JOIN teams ON teams.id = positions.team_id
+    WHERE teams.name = "Chicago Blackhawks"; >
     ```
     
     Result:
   
     ```sql
-    < output here > 
+    < Right Wing
+    Center > 
     ```
   
 4.  What are the names of the teams Shannon Boxx plays for?
@@ -49,13 +65,16 @@ Record your queries and any resulting output below.
     Query:
   
     ```sql
-    < your query here >
+    < SELECT teams.name FROM teams JOIN positions ON teams.id = positions.team_id JOIN players ON positions.player_id = players.id
+    WHERE players.name = "Shannon Boxx"; 
+    >
     ```
     
     Result:
   
     ```sql
-    < output here > 
+    < United States National Soccer
+    Chicago Red Stars > 
     ```
   
 5.  What are the names of the players who play soccer? (Each name should be listed once; no repeats.)
@@ -63,13 +82,16 @@ Record your queries and any resulting output below.
     Query:
   
     ```sql
-    < your query here >
+    < SELECT DISTINCT players.name FROM players JOIN positions ON players.id = positions.player_id JOIN teams ON positions.team_id = teams.id WHERE teams.sport = "Soccer"; >
     ```
     
     Result:
   
     ```sql
-    < output here > 
+    < Shannon Boxx
+    Hope Solo
+    Abby Wambach
+    Julie Johnston > 
     ```
   
 6.  What is the name of the team with the most players, and how many players does it have?
@@ -77,13 +99,13 @@ Record your queries and any resulting output below.
     Query:
   
     ```sql
-    < your query here >
+    < SELECT teams.name, COUNT(players.id) FROM teams JOIN positions ON teams.id = positions.team_id JOIN players ON positions.player_id = players.id ORDER BY COUNT(players.id) DESC; >
     ```
     
     Result:
   
     ```sql
-    < output here > 
+    < Chicago Red Stars|14 > 
     ```
   
 
